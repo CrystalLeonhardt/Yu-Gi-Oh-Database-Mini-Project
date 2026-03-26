@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cadastro de Atributos</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <form action="#" th:action="@{/atributo}" method=post th:object="${atributo}">
+    	Nome: <input type="text" th:field="*{atributoNome}"><br>
+    	<input type="submit" value="Cadastrar">
+    </form>
+</body>
+</html>

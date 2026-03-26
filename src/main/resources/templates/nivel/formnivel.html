@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cadastro de Níveis</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <form action="#" th:action="@{/nivel}" method=post th:object="${nivel}">
+    	Nome: <input type="number" th:field="*{nivelNumero}"><br>
+    	<input type="submit" value="Cadastrar">
+    </form>
+</body>
+</html>

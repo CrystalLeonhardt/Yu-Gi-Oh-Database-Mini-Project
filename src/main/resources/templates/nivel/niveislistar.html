@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Nivels Cadastrados</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NOME</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="nivel : ${nivels}">
+            	<td th:text="${nivel.nivelID}"></td>
+            	<td th:text="${nivel.nivelNumero}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

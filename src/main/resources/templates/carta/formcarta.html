@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cadastro de Cartas</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <form action="#" th:action="@{/carta}" method=post th:object="${carta}">
+    	Nome: <input type="text" th:field="*{cartaNome}"><br>
+    	Descricao: <input type="text" th:field="*{descricao}"><br>
+        ATK: <input type="number" th:field="*{atk}"><br>
+        DEF: <input type="number" th:field="*{def}"><br>
+    	<input type="submit" value="Cadastrar">
+    </form>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cadastro de Arquetipos</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <form action="#" th:action="@{/arquetipo}" method=post th:object="${arquetipo}">
+    	Nome: <input type="text" th:field="*{arquetipoNome}"><br>
+    	<input type="submit" value="Cadastrar">
+    </form>
+</body>
+</html>

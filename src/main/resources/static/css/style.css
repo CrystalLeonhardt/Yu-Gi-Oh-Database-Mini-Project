@@ -1,0 +1,30 @@
+body{
+    background: linear-gradient(#030F17, #260A35) no-repeat;
+    min-height: 48.5em;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    border-style: solid;
+    border-color: rgb(164, 164, 164);
+    padding: 1.1em;
+    outline-style: solid;
+    outline-color: #26234D;
+    outline-width: 0.2em;
+    border-radius: 0.7em;
+}
+
+li {
+    margin: 0;
+    padding: 1.2em 0em;
+    text-align: center;
+    list-style-type: none;
+    border-style: double;
+    border-color: white;
+    display: grid;
+}
+
+ui {
+    margin: 0;
+}
