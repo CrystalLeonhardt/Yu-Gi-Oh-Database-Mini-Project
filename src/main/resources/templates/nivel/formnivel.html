@@ -2,12 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Cadastro de Níveis</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+    <h1>Cadastrar Nível</h1>
     <form action="#" th:action="@{/nivel}" method=post th:object="${nivel}">
-    	Nome: <input type="number" th:field="*{nivelNumero}"><br>
+    	<label for="nivelNumero">Nível da Carta:</label><br> 
+        <input type="number" th:field="*{nivelNumero}"><br>
     	<input type="submit" value="Cadastrar">
     </form>
+    <div class="voltar">
+        <a th:href="@{/}">Voltar</a>
+        <a th:href="@{/nivel/listar}">Lista</a>
+    </div>
 </body>
 </html>

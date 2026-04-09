@@ -5,28 +5,22 @@
 	<link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
 <body>
-	<h1>Banco de dados de cartas de Yu-Gi-Oh!</h1>
-	<span class="botoes">
-	<ul>
-		<li><a th:href="@{/carta}">Inserir Carta</a></li>
-		<li><a th:href="@{/carta/listar}">Listar Todas Cartas</a></li>
-	</ul>
-	<ul>
-		<li><a th:href="@{/atributo}">Inserir Atributo</a></li>
-		<li><a th:href="@{/atributo/listar}">Listar Todos Atributos</a></li>
-	</ul>
-	<ul>
-		<li><a th:href="@{/tipo}">Inserir Tipo</a></li>
-		<li><a th:href="@{/tipo/listar}">Listar Todos Tipos</a></li>
-	</ul>
-	<ul>
-		<li><a th:href="@{/arquetipo}">Inserir Arquetipo</a></li>
-		<li><a th:href="@{/arquetipo/listar}">Listar Todos Arquetipos</a></li>
-	</ul>
-	<ul>
-		<li><a th:href="@{/nivel}">Inserir Nivel</a></li>
-		<li><a th:href="@{/nivel/listar}">Listar Todos Niveis</a></li>
-	</ul>
-	</span>
+	<h1>Banco de dados de cartas de<img th:src="@{/images/Yu-Gi-Oh!_Logo.png}"></h1>
+	<div class="botoes">
+		<a th:href="@{/carta}"><img th:src="@{/images/edit_icon.png}">Inserir Carta</a>
+		<a th:href="@{/carta/listar}"><img th:src="@{/images/list_icon.png}">Listar Todas Cartas</a>
+
+		<a th:href="@{/atributo}"><img th:src="@{/images/edit_icon.png}">Inserir Atributo</a>
+		<a th:href="@{/atributo/listar}"><img th:src="@{/images/list_icon.png}">Listar Todos Atributos</a>
+		
+		<a th:href="@{/tipo}"><img th:src="@{/images/edit_icon.png}">Inserir Tipo</a>
+		<a th:href="@{/tipo/listar}"><img th:src="@{/images/list_icon.png}">Listar Todos Tipos</a>
+
+		<a th:href="@{/arquetipo}"><img th:src="@{/images/edit_icon.png}">Inserir Arquetipo</a>
+		<a th:href="@{/arquetipo/listar}"><img th:src="@{/images/list_icon.png}">Listar Todos Arquetipos</a>
+		
+		<a th:href="@{/nivel}"><img th:src="@{/images/edit_icon.png}">Inserir Nivel</a>
+		<a th:href="@{/nivel/listar}"><img th:src="@{/images/list_icon.png}">Listar Todos Niveis</a>
+	</div>
 </body>
 </html>

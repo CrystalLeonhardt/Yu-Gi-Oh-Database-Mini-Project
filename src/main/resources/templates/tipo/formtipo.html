@@ -2,12 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Cadastro de Tipos</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+    <h1>Cadastrar Tipo</h1>
     <form action="#" th:action="@{/tipo}" method=post th:object="${tipo}">
-    	Nome: <input type="text" th:field="*{tipoNome}"><br>
+    	<label for="tipoNome">Nome do Tipo:</label><br> 
+        <input type="text" th:field="*{tipoNome}"><br>
     	<input type="submit" value="Cadastrar">
     </form>
+    <div class="voltar">
+        <a th:href="@{/}">Voltar</a>
+        <a th:href="@{/tipo/listar}">Lista</a>
+    </div>
 </body>
 </html>

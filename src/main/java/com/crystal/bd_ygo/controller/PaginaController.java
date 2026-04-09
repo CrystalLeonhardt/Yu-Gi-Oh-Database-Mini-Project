@@ -97,7 +97,7 @@ public class PaginaController {
 		atributoService = context.getBean(AtributoService.class);
 	    Atributo atributo = atributoService.mostrarAtributo(uuid);
 		model.addAttribute("atributoID",atributo.getAtributoID());
-		model.addAttribute("atributoaNome",atributo.getAtributoNome());
+		model.addAttribute("atributoNome",atributo.getAtributoNome());
 		return "atributo/paginaatributo";
 	}
 
@@ -126,7 +126,7 @@ public class PaginaController {
 		tipoService = context.getBean(TipoService.class);
 	    Tipo tipo = tipoService.mostrarTipo(uuid);
 		model.addAttribute("tipoID",tipo.getTipoID());
-		model.addAttribute("tipoaNome",tipo.getTipoNome());
+		model.addAttribute("tipoNome",tipo.getTipoNome());
 		return "tipo/paginatipo";
 	}
 
@@ -155,7 +155,7 @@ public class PaginaController {
 		arquetipoService = context.getBean(ArquetipoService.class);
 	    Arquetipo arquetipo = arquetipoService.mostrarArquetipo(uuid);
 		model.addAttribute("arquetipoID",arquetipo.getArquetipoID());
-		model.addAttribute("arquetipoaNome",arquetipo.getArquetipoNome());
+		model.addAttribute("arquetipoNome",arquetipo.getArquetipoNome());
 		return "arquetipo/paginaarquetipo";
 	}
 
@@ -184,7 +184,7 @@ public class PaginaController {
 		nivelService = context.getBean(NivelService.class);
 	    Nivel nivel = nivelService.mostrarNivel(uuid);
 		model.addAttribute("nivelID",nivel.getNivelID());
-		model.addAttribute("nivelaNumero",nivel.getNivelNumero());
+		model.addAttribute("nivelNumero",nivel.getNivelNumero());
 		return "nivel/paginanivel";
 	}
 

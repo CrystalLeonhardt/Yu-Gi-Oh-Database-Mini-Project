@@ -2,15 +2,25 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Cadastro de Cartas</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+    <h1>Cadastrar Carta</h1>
     <form action="#" th:action="@{/carta}" method=post th:object="${carta}">
-    	Nome: <input type="text" th:field="*{cartaNome}"><br>
-    	Descricao: <input type="text" th:field="*{descricao}"><br>
-        ATK: <input type="number" th:field="*{atk}"><br>
-        DEF: <input type="number" th:field="*{def}"><br>
+    	<label for="cartaNome">Nome da Carta:</label><br>  
+        <input type="text" th:field="*{cartaNome}"><br>
+    	<label for="descricao">Descrição:</label><br> 
+        <input type="text" th:field="*{descricao}"><br>
+        <label for="atk">Pontos de Ataque:</label><br> 
+        <input type="number" th:field="*{atk}"><br>
+        <label for="def">Pontos de Defesa:</label><br> 
+        <input type="number" th:field="*{def}"><br>
     	<input type="submit" value="Cadastrar">
     </form>
+    <div class="voltar">
+        <a th:href="@{/}">Voltar</a>
+        <a th:href="@{/carta/listar}">Lista</a>
+    </div>
 </body>
 </html>

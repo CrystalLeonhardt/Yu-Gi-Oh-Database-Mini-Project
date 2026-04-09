@@ -2,10 +2,27 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title th:text="${atributoNome}"></title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-    ID:         <h2 th:text="${atributoID}"></h2><br>
-    Atributo:       <h2 th:text="${atributoNome}"></h2><br>
+    <h1 th:text="${atributoNome}"></h1>
+     <table>
+         <thead>
+            <tr>
+                <th>ID</th>
+            </tr>
+        </thead>
+         <tbody>
+            <tr>
+                <td th:text="${atributoID}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="voltar">
+        <a th:href="@{/}">Voltar</a>
+        <a th:href="@{/atributo}">Cadastro</a>
+        <a th:href="@{/atributo/listar}">Lista</a>
+    </div>
 </body>
 </html>

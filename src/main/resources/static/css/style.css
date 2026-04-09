@@ -1,30 +1,154 @@
 body{
     background: linear-gradient(#030F17, #260A35) no-repeat;
-    min-height: 48.5em;
+    min-height: 50em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 h1 {
     color: white;
     text-align: center;
     border-style: solid;
-    border-color: rgb(164, 164, 164);
+    border-color: rgb(143, 204, 245);
+    background: linear-gradient(#062235, #1a0526) no-repeat;
     padding: 1.1em;
-    outline-style: solid;
-    outline-color: #26234D;
+    box-shadow: 0 0 40px #312d67;
     outline-width: 0.2em;
     border-radius: 0.7em;
 }
 
-li {
-    margin: 0;
-    padding: 1.2em 0em;
-    text-align: center;
-    list-style-type: none;
-    border-style: double;
-    border-color: white;
-    display: grid;
+h1 img {
+    width: 8em;
+    padding: 0 0 0 0.6em;
+    margin: 0 0 -1em 0;
 }
 
-ui {
-    margin: 0;
+.botoes{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 2em;
+    margin: auto;
+    justify-items: center;
+}
+
+.botoes a{
+    width: 27em;
+    padding: 1.3em 0;
+    border-style: inset;
+    border-color: rgba(80, 205, 255, 0.934);
+    border-radius: 0.7em;
+    box-shadow: 0 0 10px rgba(11, 156, 200, 0.9);
+    text-decoration: none;
+    background: linear-gradient(#0a437b, #330f37) no-repeat;
+    color: #fff;
+    font-size: 20px;
+}
+
+.botoes img {
+    width: 1.9em;
+    padding: 0 1em 0 1em;
+    margin: -0.4em 0;
+}
+
+.botoes a:hover, .voltar a:hover, form input:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(218, 117, 214, 0.9);
+    background: linear-gradient(#0c91c1, #be18b6) no-repeat;
+    border-color: rgb(255, 92, 252);
+}
+
+table{
+    padding: 2em;
+    color: white;
+    margin: auto;
+    font-size: 25px;
+    border-collapse: collapse;
+    max-width: 25em;
+}
+
+thead {
+    font-size: 30px;
+}
+
+td {
+    text-align: center;
+    padding: 0.3em 1em;
+}
+
+th {
+    padding: 1em;
+    background: linear-gradient(#0a247b 0%, #1b1a54 50%,#1f0e32 100%) no-repeat;
+}
+
+tr:hover{
+    background: linear-gradient(100deg, #151e69, #281357) no-repeat;
+    border-color: rgb(255, 92, 252);
+}
+
+tr{
+    background-color: rgba(13, 14, 44, 0.126);
+}
+
+tr:nth-child(odd){
+    background-color: rgba(33, 17, 70, 0.418);
+}
+
+th:first-child{
+    border-top-left-radius: 1em;
+}
+
+th:last-child{
+    border-top-right-radius: 1em;
+}
+
+tr:last-child td:first-child{
+    border-bottom-left-radius: 1em;
+}
+
+tr:last-child td:last-child{
+    border-bottom-right-radius: 1em;
+}
+
+form{
+    color: white;
+    text-align: center;
+    border-style: solid;
+    border-color: rgb(143, 204, 245);
+    max-width: 50em;
+    margin: auto;
+    background: linear-gradient(#0d2334, #281836) no-repeat;
+    box-shadow: 0 0 40px #312d67;
+    outline-width: 0.2em;
+    border-radius: 0.7em;
+    font-size: 1.6em;
+    padding-top: 1em;
+}
+
+form input {
+    font-size: 1.6em;
+    color: white;
+    text-align: center;
+    background: linear-gradient(#0a437b, #0a2a61) no-repeat;
+    border: solid;
+    border-color: rgba(80, 205, 255, 0.7);
+    box-shadow: 0 0 20px #312d67;
+    outline-width: 0.2em;
+    border-radius: 0.7em;
+    margin: 0.3em 0;
+}
+
+.voltar a {
+    border-style: inset;
+    border-color: rgba(80, 205, 255, 0.934);
+    border-radius: 0.7em;
+    box-shadow: 0 0 10px rgba(11, 156, 200, 0.9);
+    background: linear-gradient(#0a437b, #330f37) no-repeat;
+    text-align: center;
+    padding: 1em;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.voltar {
+    margin: 2em 0 0 39em;
 }
