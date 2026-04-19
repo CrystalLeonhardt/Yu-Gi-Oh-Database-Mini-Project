@@ -8,6 +8,6 @@ COPY .mvn .mvn
 
 RUN chmod 777 mvnw
 
-RUN ./mvnw package --aq vai compilar
+RUN ./mvnw package 
 
 CMD ["java", "-jar","target/*.jar"]
