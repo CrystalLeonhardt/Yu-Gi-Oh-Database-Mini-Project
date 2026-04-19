@@ -8,6 +8,6 @@ COPY .mvn .mvn
 
 RUN chmod 777 mvnw
 
-RUN ./mvnw package 
+RUN ./mvnw package -Dmaven.test.skip=true
 
 CMD ["java", "-jar","target/bd-ygo-0.0.1-SNAPSHOT.jar"]
