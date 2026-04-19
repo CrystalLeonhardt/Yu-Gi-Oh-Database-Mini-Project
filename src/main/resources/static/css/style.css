@@ -1,19 +1,68 @@
-body{
-    background: linear-gradient(#030F17, #260A35) no-repeat;
-    min-height: 50em;
+/* ============================================
+   VARIÁVEIS DO TEMA
+   ============================================ */
+:root {
+    --cor-bg-inicio:     #030F17;
+    --cor-bg-fim:        #260A35;
+
+    --cor-card-azul:     #062235;
+    --cor-card-roxo:     #1a0526;
+
+    --cor-btn-azul:      #0a437b;
+    --cor-btn-roxo:      #330f37;
+
+    --cor-form-azul:     #0d2334;
+    --cor-form-roxo:     #281836;
+
+    --cor-input-azul:    #0a2a61;
+
+    --cor-borda-azul:    rgba(80, 205, 255, 0.934);
+    --cor-borda-azul-sm: rgba(80, 205, 255, 0.7);
+    --cor-borda-rosa:    rgb(255, 92, 252);
+    --cor-borda-clara:   rgb(143, 204, 245);
+
+    --cor-glow-roxo:     #312d67;
+    --cor-glow-azul:     rgba(11, 156, 200, 0.9);
+
+    --cor-hover-azul:    #0c91c1;
+    --cor-hover-rosa:    #be18b6;
+    --cor-hover-glow:    rgba(218, 117, 214, 0.9);
+
+    --cor-th-azul:       #0a247b;
+    --cor-th-meio:       #1b1a54;
+    --cor-th-roxo:       #1f0e32;
+
+    --cor-tr-hover-a:    #151e69;
+    --cor-tr-hover-b:    #281357;
+    --cor-tr-par:        rgba(13, 14, 44, 0.126);
+    --cor-tr-impar:      rgba(33, 17, 70, 0.418);
+
+    --raio:              0.7em;
+    --raio-tabela:       1em;
+    --transicao:         transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+/* ============================================
+   BASE
+   ============================================ */
+body {
+    background: linear-gradient(var(--cor-bg-inicio), var(--cor-bg-fim));
+    background-attachment: fixed;
+    min-height: 100vh;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+/* ============================================
+   TÍTULO
+   ============================================ */
 h1 {
     color: white;
     text-align: center;
-    border-style: solid;
-    border-color: rgb(143, 204, 245);
-    background: linear-gradient(#062235, #1a0526) no-repeat;
+    border: solid var(--cor-borda-clara);
+    background: linear-gradient(var(--cor-card-azul), var(--cor-card-roxo));
     padding: 1.1em;
-    box-shadow: 0 0 40px #312d67;
-    outline-width: 0.2em;
-    border-radius: 0.7em;
+    box-shadow: 0 0 40px var(--cor-glow-roxo);
+    border-radius: var(--raio);
 }
 
 h1 img {
@@ -22,47 +71,67 @@ h1 img {
     margin: 0 0 -1em 0;
 }
 
-.botoes{
+/* ============================================
+   BOTÕES DE NAVEGAÇÃO
+   ============================================ */
+.botoes {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(auto-fit, minmax(30em, 1fr));
     gap: 2em;
     margin: auto;
     justify-items: center;
 }
 
-.botoes a{
-    width: 27em;
+.botoes a {
+    width: min(27em, 90%);
     padding: 1.3em 0;
     border-style: inset;
-    border-color: rgba(80, 205, 255, 0.934);
-    border-radius: 0.7em;
-    box-shadow: 0 0 10px rgba(11, 156, 200, 0.9);
+    border-color: var(--cor-borda-azul);
+    border-radius: var(--raio);
+    box-shadow: 0 0 10px var(--cor-glow-azul);
     text-decoration: none;
-    background: linear-gradient(#0a437b, #330f37) no-repeat;
+    background: linear-gradient(var(--cor-btn-azul), var(--cor-btn-roxo));
     color: #fff;
     font-size: 20px;
+    display: block;
+    text-align: justify;
+    transition: var(--transicao);
 }
 
 .botoes img {
     width: 1.9em;
-    padding: 0 1em 0 1em;
+    padding: 0 1em;
     margin: -0.4em 0;
+    vertical-align: middle;
 }
 
-.botoes a:hover, .voltar a:hover, form input:hover{
+/* ============================================
+   HOVER — BOTÕES E INPUTS
+   ============================================ */
+.botoes a:hover,
+.voltar a:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 40px rgba(218, 117, 214, 0.9);
-    background: linear-gradient(#0c91c1, #be18b6) no-repeat;
-    border-color: rgb(255, 92, 252);
+    box-shadow: 0 0 40px var(--cor-hover-glow);
+    background: linear-gradient(var(--cor-hover-azul), var(--cor-hover-rosa));
+    border-color: var(--cor-borda-rosa);
 }
 
-table{
+form input:hover {
+    box-shadow: 0 0 40px var(--cor-hover-glow);
+    border-color: var(--cor-borda-rosa);
+}
+
+/* ============================================
+   TABELA
+   ============================================ */
+table {
     padding: 2em;
     color: white;
     margin: auto;
     font-size: 25px;
     border-collapse: collapse;
     max-width: 25em;
+    width: 100%;
 }
 
 thead {
@@ -76,49 +145,46 @@ td {
 
 th {
     padding: 1em;
-    background: linear-gradient(#0a247b 0%, #1b1a54 50%,#1f0e32 100%) no-repeat;
+    background: linear-gradient(
+        var(--cor-th-azul)  0%,
+        var(--cor-th-meio)  50%,
+        var(--cor-th-roxo)  100%
+    );
 }
 
-tr:hover{
-    background: linear-gradient(100deg, #151e69, #281357) no-repeat;
-    border-color: rgb(255, 92, 252);
+tr {
+    background-color: var(--cor-tr-par);
+    transition: background 0.15s ease;
 }
 
-tr{
-    background-color: rgba(13, 14, 44, 0.126);
+tr:nth-child(odd) {
+    background-color: var(--cor-tr-impar);
 }
 
-tr:nth-child(odd){
-    background-color: rgba(33, 17, 70, 0.418);
+tr:hover {
+    background: linear-gradient(100deg, var(--cor-tr-hover-a), var(--cor-tr-hover-b));
+    border-color: var(--cor-borda-rosa);
 }
 
-th:first-child{
-    border-top-left-radius: 1em;
-}
+/* Bordas arredondadas da tabela */
+th:first-child  { border-top-left-radius:     var(--raio-tabela); }
+th:last-child   { border-top-right-radius:    var(--raio-tabela); }
 
-th:last-child{
-    border-top-right-radius: 1em;
-}
+tr:last-child td:first-child { border-bottom-left-radius:  var(--raio-tabela); }
+tr:last-child td:last-child  { border-bottom-right-radius: var(--raio-tabela); }
 
-tr:last-child td:first-child{
-    border-bottom-left-radius: 1em;
-}
-
-tr:last-child td:last-child{
-    border-bottom-right-radius: 1em;
-}
-
-form{
+/* ============================================
+   FORMULÁRIO
+   ============================================ */
+form {
     color: white;
     text-align: center;
-    border-style: solid;
-    border-color: rgb(143, 204, 245);
+    border: solid var(--cor-borda-clara);
     max-width: 50em;
     margin: auto;
-    background: linear-gradient(#0d2334, #281836) no-repeat;
-    box-shadow: 0 0 40px #312d67;
-    outline-width: 0.2em;
-    border-radius: 0.7em;
+    background: linear-gradient(var(--cor-form-azul), var(--cor-form-roxo));
+    box-shadow: 0 0 40px var(--cor-glow-roxo);
+    border-radius: var(--raio);
     font-size: 1.6em;
     padding-top: 1em;
 }
@@ -127,28 +193,55 @@ form input {
     font-size: 1.6em;
     color: white;
     text-align: center;
-    background: linear-gradient(#0a437b, #0a2a61) no-repeat;
-    border: solid;
-    border-color: rgba(80, 205, 255, 0.7);
-    box-shadow: 0 0 20px #312d67;
-    outline-width: 0.2em;
-    border-radius: 0.7em;
+    background: linear-gradient(var(--cor-btn-azul), var(--cor-input-azul));
+    border: solid var(--cor-borda-azul-sm);
+    box-shadow: 0 0 20px var(--cor-glow-roxo);
+    border-radius: var(--raio);
     margin: 0.3em 0;
+    transition: var(--transicao);
+}
+
+/* ============================================
+   BOTÃO VOLTAR
+   ============================================ */
+.voltar {
+    display: flex;
+    justify-content: center;
+    margin: 2em 2em 0 0;
 }
 
 .voltar a {
     border-style: inset;
-    border-color: rgba(80, 205, 255, 0.934);
-    border-radius: 0.7em;
-    box-shadow: 0 0 10px rgba(11, 156, 200, 0.9);
-    background: linear-gradient(#0a437b, #330f37) no-repeat;
+    border-color: var(--cor-borda-azul);
+    border-radius: var(--raio);
+    box-shadow: 0 0 10px var(--cor-glow-azul);
+    background: linear-gradient(var(--cor-btn-azul), var(--cor-btn-roxo));
     text-align: center;
     padding: 1em;
     color: white;
     text-decoration: none;
     font-size: 20px;
+    transition: var(--transicao);
 }
 
-.voltar {
-    margin: 2em 0 0 39em;
+/* ============================================
+   RESPONSIVIDADE
+   ============================================ */
+@media (max-width: 600px) {
+    table {
+        font-size: 16px;
+    }
+
+    thead {
+        font-size: 20px;
+    }
+
+    form {
+        font-size: 1.2em;
+    }
+
+    .voltar {
+        justify-content: center;
+        margin: 2em 0 0 0;
+    }
 }
