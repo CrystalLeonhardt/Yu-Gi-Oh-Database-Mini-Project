@@ -6,6 +6,7 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 
 import jakarta.annotation.PostConstruct;
@@ -23,14 +24,17 @@ public class UsuarioDAO {
         jdbc = new JdbcTemplate(dataSource);
     }
 
+    private PasswordEncoder passwordEncoder;
+
     public void inserirUsuario(Usuario usuario) {
         String sql = "INSERT INTO usuario(nome, password) VALUES (?, ?)";
+
         Object[] obj = new Object[2];
         obj[0] = usuario.getNome();
-        obj[1] = usuario.getPassword();
+        obj[1] = passwordEncoder.encode(usuario.getPassword());
+
         jdbc.update(sql, obj);
 
-        // insere o perfil padrão como "user"
         jdbc.update(
             "INSERT INTO perfil_usuario(usuarioid, cargo) " +
             "SELECT usuarioid, 'user' FROM usuario WHERE nome = ?",
