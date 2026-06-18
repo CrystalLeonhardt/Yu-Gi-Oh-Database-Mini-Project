@@ -6,7 +6,7 @@ spring:
     platform: postgres
     url: ${DATABASE_URL}
     username: ${DATABASE_USERNAME}
-    gitpassword: ${DATABASE_PASSWORD}
+    password: ${DATABASE_PASSWORD}
     driverClassName: org.postgresql.Driver
 
   jpa:
