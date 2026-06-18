@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Editar Tipo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container narrow">
+        <h1>Editar Tipo</h1>
+        <form action="#" th:action="@{'/tipo/' + ${tipo.tipoID} + '/editar'}" method="post" th:object="${tipo}">
+        <label for="tipoNome">Nome do Tipo:</label><br>  
+        <input type="text" th:field="*{tipoNome}"><br>
+
+        <button type="submit" class="botao2">Salvar</button>
+        </form>
+        <div class="voltar">
+        <p><a th:href="@{/tipo/listar}">Voltar</a></p>
+        </div>
+    </div>
+</body>
+</html>

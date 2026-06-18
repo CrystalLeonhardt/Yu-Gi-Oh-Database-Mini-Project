@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Editar Carta</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container narrow">
+        <h1>Editar Carta</h1>
+        <form action="#" th:action="@{'/carta/' + ${carta.cartaID} + '/editar'}" method="post" th:object="${carta}">
+        <label for="cartaNome">Nome da Carta:</label><br>  
+        <input type="text" th:field="*{cartaNome}"><br>
+
+    	<label for="descricao">Descrição:</label><br> 
+        <input type="text" th:field="*{descricao}"><br>
+
+        <label for="atk">Pontos de Ataque:</label><br> 
+        <input type="number" th:field="*{atk}"><br>
+
+        <label for="def">Pontos de Defesa:</label><br> 
+        <input type="number" th:field="*{def}"><br>
+
+        <label>Atributo:</label><br>
+        <select th:field="*{atributo}">
+            <option th:each="atributo : ${atributos}"
+                    th:value="${atributo.atributoID}"
+                    th:text="${atributo.atributoNome}">
+            </option>
+        </select><br>
+
+        <label>Tipo:</label><br>
+        <select th:field="*{tipo}">
+            <option th:each="tipo : ${tipos}"
+                    th:value="${tipo.tipoID}"
+                    th:text="${tipo.tipoNome}">
+            </option>
+        </select><br>
+
+        <label>Arquétipo:</label><br>
+        <select th:field="*{arquetipo}">
+            <option th:each="arquetipo : ${arquetipos}"
+                    th:value="${arquetipo.arquetipoID}"
+                    th:text="${arquetipo.arquetipoNome}">
+            </option>
+        </select><br>
+
+        <label>Nível:</label><br>
+        <select th:field="*{nivel}">
+            <option th:each="nivel : ${nivels}"
+                    th:value="${nivel.nivelID}"
+                    th:text="${nivel.nivelNumero}">
+            </option>
+        </select><br>
+        <div class="carta-imagem-bloco">
+            <img th:src="@{'/carta/' + ${carta.cartaID} + '/imagem/ver'}"
+                 th:alt="${carta.cartaNome}"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="sem-imagem-bloco" style="display:none;">sem imagem</div>
+            <div>
+                <p style="margin:0 0 8px 0; font-size:0.9rem; color:#ccc;">Imagem da carta</p>
+                <a th:href="@{'/carta/' + ${carta.cartaID} + '/imagem'}"
+                   class="btn-imagem-link">&#128247; Gerenciar imagem</a>
+            </div>
+        </div>
+        <button type="submit" class="botao2">Salvar</button>
+        </form>
+        <div class="voltar">
+            <p><a th:href="@{/carta/listar}">Voltar</a></p>
+        </div>
+    </div>
+</body>
+</html>

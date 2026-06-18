@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${cartaNome}"></title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1 th:text="${cartaNome}"></h1>
+    <div class="carta-detalhe">
+        <img th:src="@{'/carta/' + ${cartaID} + '/imagem/ver'}"
+             th:alt="${cartaNome}"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="sem-imagem-detalhe" style="display:none;">sem imagem</div>
+    <div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>DESCRIÇÃO</th>
+                <th>ATK</th>
+                <th>DEF</th>
+                <th>ATRIBUTO</th>
+                <th>TIPO</th>
+                <th>ARQUETIPO</th>
+                <th>NIVEL</th>
+                <th>EDITAR</th>
+                <th>DELETAR</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            	<td th:text="${cartaID}"></td>
+            	<td th:text="${descricao}"></td>
+                <td th:text="${atk}"></td>
+                <td th:text="${def}"></td>
+                <td th:text="${atributo}"></td>
+                <td th:text="${tipo}"></td>
+                <td th:text="${arquetipo}"></td>
+                <td th:text="${nivel}"></td>
+                <td>
+                    <a th:href="@{'/carta/' + ${cartaID} + '/editar'}" class="btn-editar">Editar</a>
+                </td>
+                <td>
+                    <form th:action="@{'/carta/' + ${cartaID} + '/deletar'}" method="post">
+                        <button type="submit" class="btn-deletar">Deletar</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    <div class="voltar">
+        <a th:href="@{/}">Voltar</a>
+        <a th:href="@{/carta}">Cadastro</a>
+        <a th:href="@{/carta/listar}">Lista</a>
+    </div>
+</body>
+</html>

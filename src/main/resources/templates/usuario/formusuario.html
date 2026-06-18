@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Criar Conta</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="auth-card">
+        <h1>Criar Conta</h1>
+        <p class="auth-sub">Preencha os dados abaixo</p>
+
+        <form th:action="@{/usuario}" method="post" th:object="${usuario}">
+            <label for="nome">Nome</label>
+            <input id="nome" type="text" th:field="*{nome}" required autofocus>
+
+            <label for="password">Senha</label>
+            <input id="password" type="password" th:field="*{password}" required>
+
+            <button type="submit" class="botao3">Cadastrar</button>
+        </form>
+
+        <p class="auth-sub small">
+            Já tem conta? <a th:href="@{/login}">Entrar</a>
+        </p>
+    </div>
+</body>
+</html>

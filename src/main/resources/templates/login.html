@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Yu-Gi-Oh DB — Login</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="auth-card">
+        <h1>Yu-Gi-Oh DB</h1>
+        <p class="auth-sub">Entre com sua conta</p>
+
+        <div th:if="${errorMsg}"  class="alert alert-error"  th:text="${errorMsg}"></div>
+        <div th:if="${logoutMsg}" class="alert alert-ok"     th:text="${logoutMsg}"></div>
+
+        <form th:action="@{/login}" method="post">
+            <label for="username">Nome</label>
+            <input id="username" type="text" name="username" required autofocus>
+
+            <label for="password">Senha</label>
+            <input id="password" type="password" name="password" required>
+
+            <button type="submit" class="botao">Entrar</button>
+         
+        </form>
+
+        <p class="auth-sub small">
+            Não tem conta? <a th:href="@{/usuario}">Cadastre-se</a>
+        </p>
+    </div>
+</body>
+</html>

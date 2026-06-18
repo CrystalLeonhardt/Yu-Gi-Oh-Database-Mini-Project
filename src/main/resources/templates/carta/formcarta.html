@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cadastro de Cartas</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1>Cadastrar Carta</h1>
+    <form action="#" th:action="@{/carta}" method=post th:object="${carta}" enctype="multipart/form-data">
+    	<label for="cartaNome">Nome da Carta:</label><br>  
+        <input type="text" th:field="*{cartaNome}" required><br>
+
+    	<label for="descricao">Descrição:</label><br> 
+        <input type="text" th:field="*{descricao}"><br>
+
+        <label for="atk">Pontos de Ataque:</label><br> 
+        <input type="number" th:field="*{atk}" min="0" max="5000"><br>
+
+        <label for="def">Pontos de Defesa:</label><br> 
+        <input type="number" th:field="*{def}" min="0" max="5000"><br>
+
+        <label>Atributo:</label><br>
+        <select th:field="*{atributo}" required>
+            <option th:each="atributo : ${atributos}"
+                    th:value="${atributo.atributoID}"
+                    th:text="${atributo.atributoNome}">
+            </option>
+        </select><br>
+
+        <label>Tipo:</label><br>
+        <select th:field="*{tipo}" required>
+            <option th:each="tipo : ${tipos}"
+                    th:value="${tipo.tipoID}"
+                    th:text="${tipo.tipoNome}">
+            </option>
+        </select><br>
+
+        <label>Arquétipo:</label><br>
+        <select th:field="*{arquetipo}" required>
+            <option th:each="arquetipo : ${arquetipos}"
+                    th:value="${arquetipo.arquetipoID}"
+                    th:text="${arquetipo.arquetipoNome}">
+            </option>
+        </select><br>
+
+        <label>Nível:</label><br>
+        <select th:field="*{nivel}" required>
+            <option th:each="nivel : ${nivels}"
+                    th:value="${nivel.nivelID}"
+                    th:text="${nivel.nivelNumero}">
+            </option>
+        </select><br>
+        <label for="arquivo">Imagem da Carta (opcional):</label><br>
+        <input type="file"
+               id="arquivo"
+               name="arquivo"
+               accept="image/jpeg, image/png, image/webp"><br>
+
+    	<input type="submit" value="Cadastrar">
+    </form>
+    <div class="voltar">
+        <a th:href="@{/}">Voltar</a>
+        <a th:href="@{/carta/listar}">Lista</a>
+    </div>
+</body>
+</html>

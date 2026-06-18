@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${nivelNome}"></title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1 th:text="${nivelNumero}"></h1>
+     <table>
+         <thead>
+            <tr>
+                <th>ID</th>
+                <th>EDITAR</th>
+                <th>DELETAR</th>
+            </tr>
+        </thead>
+         <tbody>
+            <tr>
+                <td th:text="${nivelID}"></td>
+                <td>
+                    <a th:href="@{'/nivel/' + ${nivelID} + '/editar'}" class="btn-editar">Editar</a>
+                </td>
+                <td>
+                    <form th:action="@{'/nivel/' + ${nivelID} + '/deletar'}" method="post">
+                        <button type="submit" class="btn-deletar">Deletar</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="voltar">
+        <a th:href="@{/}">Voltar</a>
+        <a th:href="@{/nivel}">Cadastro</a>
+        <a th:href="@{/nivel/listar}">Lista</a>
+    </div>
+</body>
+</html>

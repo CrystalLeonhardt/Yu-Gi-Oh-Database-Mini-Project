@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Editar Nivel</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container narrow">
+        <h1>Editar Nivel</h1>
+        <form action="#" th:action="@{'/nivel/' + ${nivel.nivelID} + '/editar'}" method="post" th:object="${nivel}">
+        <label for="nivelNumero">Numero do Nivel:</label><br>  
+        <input type="text" th:field="*{nivelNumero}"><br>
+
+        <button type="submit" class="botao2">Salvar</button>
+        </form>
+        <div class="voltar">
+        <p><a th:href="@{/nivel/listar}">Voltar</a></p>
+        </div>
+    </div>
+</body>
+</html>

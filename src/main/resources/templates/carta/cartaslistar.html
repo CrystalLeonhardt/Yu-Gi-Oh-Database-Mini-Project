@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cartas Cadastradas</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1>Lista de Cartas</h1>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NOME</th>
+                    <th>DESCRIÇÃO</th>
+                    <th>ATK</th>
+                    <th>DEF</th>
+                    <th>ATRIBUTO</th>
+                    <th>TIPO</th>
+                    <th>ARQUÉTIPO</th>
+                    <th>NÍVEL</th>
+                    <th>IMAGEM</th>
+                    <th>AÇÕES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="carta : ${cartas}">
+                    <td th:text="${carta.cartaID}"></td>
+                    <td th:text="${carta.cartaNome}"></td>
+                    <td th:text="${carta.descricao}"></td>
+                    <td th:text="${carta.atk}"></td>
+                    <td th:text="${carta.def}"></td>
+                    <td th:text="${carta.atributo}"></td>
+                    <td th:text="${carta.tipo}"></td>
+                    <td th:text="${carta.arquetipo}"></td>
+                    <td th:text="${carta.nivel}"></td>
+                    <td>
+                        <img class="carta-thumb"
+                             th:src="@{'/carta/' + ${carta.cartaID} + '/imagem/ver'}"
+                             th:alt="${carta.cartaNome}"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                        />
+                        <div class="sem-imagem" style="display:none;">sem imagem</div>
+
+                        <a th:href="@{'/carta/' + ${carta.cartaID} + '/imagem'}"
+                           class="btn-imagem"> Foto</a>
+                    </td>
+                    <td>
+                        <a th:href="@{'/carta/' + ${carta.cartaID} + '/editar'}" class="btn-editar"> Editar</a>
+
+                        <form th:action="@{'/carta/' + ${carta.cartaID} + '/deletar'}" method="post" style="display:inline">
+                            <button type="submit" class="btn-deletar">Deletar</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="voltar">
+        <a th:href="@{/}">Voltar</a>
+        <a th:href="@{/carta}">Cadastro</a>
+    </div>
+</body>
+</html>

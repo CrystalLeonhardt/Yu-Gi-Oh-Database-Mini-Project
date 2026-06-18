@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Imagem da Carta</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <div class="imagem-page">
+        <h1>Imagem da Carta</h1>
+        <h2 th:text="${carta.cartaNome}"></h2>
+
+        <!-- Mensagem de erro -->
+        <p class="erro-msg" th:if="${erro}" th:text="${erro}"></p>
+
+        <!-- Bloco da imagem atual -->
+        <div class="card-imagem">
+            <!-- Com imagem -->
+            <th:block th:if="${imagemExistente != null}">
+                <img th:src="@{'/carta/' + ${carta.cartaID} + '/imagem/ver'}"
+                     th:alt="${carta.cartaNome}" />
+            </th:block>
+            <!-- Sem imagem -->
+            <th:block th:if="${imagemExistente == null}">
+                <div class="sem-img-box">sem<br>imagem</div>
+            </th:block>
+
+            <div class="card-imagem-info">
+                <th:block th:if="${imagemExistente != null}">
+                    <span class="nome-arquivo" th:text="${imagemExistente.nomeOriginal}"></span>
+                    <form th:action="@{'/carta/' + ${carta.cartaID} + '/imagem/remover'}" method="post" class="btn-remover">
+                        <button type="submit" class="btn-remover2">&#128465; Remover imagem</button>
+                    </form>
+                </th:block>
+                <th:block th:if="${imagemExistente == null}">
+                    <span style="color:#666; font-size:0.9rem;">Nenhuma imagem cadastrada para esta carta.</span>
+                </th:block>
+            </div>
+        </div>
+
+        <!-- Formulário de upload -->
+        <div class="upload-box">
+            <h3 th:text="${imagemExistente != null} ? 'Substituir imagem' : 'Enviar imagem'"></h3>
+            <form th:action="@{'/carta/' + ${carta.cartaID} + '/imagem'}"
+                  method="post"
+                  enctype="multipart/form-data">
+                <label for="arquivo">Selecione um arquivo (JPG, PNG, WEBP):</label>
+                <input type="file"
+                       id="arquivo"
+                       name="arquivo"
+                       accept="image/jpeg, image/png, image/webp"
+                       required>
+                <input type="submit" value="&#128228; Enviar imagem">
+            </form>
+        </div>
+
+        <div class="voltar">
+            <a th:href="@{/carta/listar}">Voltar para lista</a>
+        </div>
+    </div>
+</body>
+</html>
