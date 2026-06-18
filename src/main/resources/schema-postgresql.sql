@@ -56,9 +56,24 @@ ALTER TABLE carta ADD COLUMN IF NOT EXISTS tipoId UUID;
 ALTER TABLE carta ADD COLUMN IF NOT EXISTS arquetipoId UUID; 
 ALTER TABLE carta ADD COLUMN IF NOT EXISTS nivelId UUID;
 
-ALTER TABLE carta ADD CONSTRAINT IF NOT EXISTS fk_Atributo FOREIGN KEY (atributoId) REFERENCES atributo(atributoId); 
-ALTER TABLE carta ADD CONSTRAINT IF NOT EXISTS fk_Tipo FOREIGN KEY (tipoId) REFERENCES tipo(tipoId); 
-ALTER TABLE carta ADD CONSTRAINT IF NOT EXISTS fk_Arquetipo FOREIGN KEY (arquetipoId) REFERENCES arquetipo(arquetipoId); 
-ALTER TABLE carta ADD CONSTRAINT IF NOT EXISTS fk_Nivel FOREIGN KEY (nivelId) REFERENCES nivel(nivelId); 
-
 ALTER TABLE nivel ALTER COLUMN nivelnumero TYPE VARCHAR(10);
+
+ALTER TABLE carta
+ADD CONSTRAINT fk_Atributo
+FOREIGN KEY (atributoId)
+REFERENCES atributo(atributoId);
+
+ALTER TABLE carta
+ADD CONSTRAINT fk_Tipo
+FOREIGN KEY (tipoId)
+REFERENCES tipo(tipoId);
+
+ALTER TABLE carta
+ADD CONSTRAINT fk_Arquetipo
+FOREIGN KEY (arquetipoId)
+REFERENCES arquetipo(arquetipoId);
+
+ALTER TABLE carta
+ADD CONSTRAINT fk_Nivel
+FOREIGN KEY (nivelId)
+REFERENCES nivel(nivelId);
