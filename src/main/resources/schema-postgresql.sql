@@ -58,6 +58,7 @@ ALTER TABLE carta ADD COLUMN IF NOT EXISTS nivelId UUID;
 
 ALTER TABLE nivel ALTER COLUMN nivelnumero TYPE VARCHAR(10);
 
+/*
 ALTER TABLE carta
 ADD CONSTRAINT fk_Atributo
 FOREIGN KEY (atributoId)
@@ -77,3 +78,4 @@ ALTER TABLE carta
 ADD CONSTRAINT fk_Nivel
 FOREIGN KEY (nivelId)
 REFERENCES nivel(nivelId);
+*/
